@@ -12,7 +12,7 @@ ECC의 기본연산을 Python으로 구현했습니다.
 
 ## ECC를 이용한 암호 시스템
 ECC의 기본 연산을 이용한 암호 시스템들입니다.
-각 시스템들 옆에 작성된 파일이 해당 시스템을 구현한 파일입니다.
+각 시스템들 옆에는 해당 시스템을 구현한 파일이름입니다.
 ex) ECDH.py 
 
 1. Key Exchange : ECDH(Elliptic Curve Diffe-Hellman) : ECDH.py

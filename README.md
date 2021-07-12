@@ -12,6 +12,8 @@
 를 Python으로 구현했습니다.
 
 ## ECC를 이용한 암호 시스템
-1. Key Exchange : ECDH(Elliptic Curve Cryptography)
+ECC의 기본 연산을 이용한 암호 시스템들입니다.
+
+1. Key Exchange : ECDH(Elliptic Curve Cryptography) : ECDH.py
 2. Encryption / Decryption : EC ELGamal
 3. Digital Signature : ECDSA

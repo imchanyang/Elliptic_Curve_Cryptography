@@ -11,7 +11,7 @@ valid_points = [(2, 6), (4, 19), (8, 10), (13, 23), (16, 2), (19, 16), (27, 2),
 
 # 키 생성
 def private_key_gnt():
-    k = random.randint(0, 36)
+    k = random.randint(0, 32)
     return k
 
 
@@ -27,42 +27,42 @@ def make_key(k, q):
     return K
 
 
+class Person:
+    # 이름
+    __name = ''
+    # private key
+    __X = private_key_gnt()
+    # 상대방과 공유하는 점
+    __S = -1, -1
+    # 자신의 public key
+    __Q_self = -1, -1
+    # 상대방의 public key
+    __Q_another = -1, -1
+    # 상대방의 public key와 자신의 private key로 만든 KEY
+    __K = -1, -1
+
+    # 이름과 공유하는 점 초기화 / 자신의 public key 생성
+    def __init__(self, name, S):
+        self.__name = name
+        self.__S = S
+        self.__Q_self = public_key_gnt(self.__X, S)
+
+    # 자신의 public key 공유
+    def give_key(self):
+        return self.__Q_self
+
+    # 상대방의 public key 받기
+    def recieve_key(self, Q):
+        self.__Q_another = Q
+
+    # 만든 KEY를 공유
+    def make(self):
+        self.__K = make_key(self.__X, self.__Q_another)
+        return self.__K
+
+
 # ECDH(Elliptic Curve Diffie-Hellman) main 함수
 if __name__ == "__main__":
-
-    class Person:
-        # 이름
-        __name = ''
-        # private key
-        __X = private_key_gnt()
-        # 상대방과 공유하는 점
-        __S = -1, -1
-        # 자신의 public key
-        __Q_self = -1, -1
-        # 상대방의 public key
-        __Q_another = -1, -1
-        # 상대방의 public key와 자신의 private key로 만든 KEY
-        __K = -1, -1
-
-        # 이름과 공유하는 점 초기화 / 자신의 public key 생성
-        def __init__(self, name, S):
-            self.__name = name
-            self.__S = S
-            self.__Q_self = public_key_gnt(self.__X, S)
-
-        # 자신의 public key 공유
-        def give_key(self):
-            return self.__Q_self
-
-        # 상대방의 public key 받기
-        def recieve_key(self, Q):
-            self.__Q_another = Q
-
-        # 만든 KEY를 공유
-        def make(self):
-            self.__K = make_key(self.__X, self.__Q_another)
-            return self.__K
-
 
     # 공유할 점P 생성
     S1 = random.sample(valid_points, 1)
@@ -91,5 +91,3 @@ if __name__ == "__main__":
             print("ECDH(Elliptic Curve Diffie-Hellman)을 이용한 Key Exchange 성공!")
         else:
             print("ECDH(Elliptic Curve Diffie-Hellman)을 이용한 Key Exchange 실패!")
-
-

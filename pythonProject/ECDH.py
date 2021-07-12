@@ -86,7 +86,7 @@ if __name__ == "__main__":
         K1 = alice.make()
         K2 = bob.make()
 
-        # 상대방의 키와 나의 키가 잘 공유 됬다면 Key Exchange 성공
+        # 상대방의 키와 나의 키가 잘 공유 했다면 Key Exchange 성공
         if K1 == K2:
             print("ECDH(Elliptic Curve Diffie-Hellman)을 이용한 Key Exchange 성공!")
         else:

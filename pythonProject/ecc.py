@@ -45,6 +45,8 @@ Check if P is INF or not
 Return True: P is INF
        False: P is not INF
 """
+
+
 def inf(P):
     if P is INF:
         return True

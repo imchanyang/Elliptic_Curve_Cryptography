@@ -97,15 +97,11 @@ def add(P, Q):
         x3, y3 = INF
     elif P == Q:
         x3, y3 = dbl(P)
-    # elif P == neg(INF):
-    #     x3, y3 = INF
-    # elif Q == mul(36, P):
-    #     x3, y3 = INF
     else:
-        x3 =( ((y2-y1)*m_inv((x2-x1), p))*((y2-y1)*m_inv((x2-x1), p))-x1-x2) % p
+        x3 =(((y2-y1)*m_inv((x2-x1), p))*((y2-y1)*m_inv((x2-x1), p))-x1-x2) % p
         y3 = (((y2-y1)*m_inv((x2-x1), p))*(x1-x3)-y1) % p
 
-    if(x3 == -1 and y3 == -1):
+    if x3 == -1 and y3 == -1:
         return INF
     else:
         return x3, y3

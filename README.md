@@ -16,5 +16,5 @@ ECC의 기본 연산을 이용한 암호 시스템들입니다.
 ex) ECDH.py 
 
 1. Key Exchange : ECDH(Elliptic Curve Diffe-Hellman) : ECDH.py
-2. Encryption / Decryption : EC(Elliptic Curve) ELGamal
+2. Encryption / Decryption : EC(Elliptic Curve) ELGamal : EC_ELGamal.py
 3. Digital Signature : ECDSA(Elliptic Curve Digital Signature Algorithm) : ECDSA.py

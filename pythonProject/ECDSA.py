@@ -1,5 +1,5 @@
 import random
-from ecc import mul, add
+from ecc import mul, add, valid
 from extended_euclid import m_inv
 
 # 파이썬 코딩에 익숙하지 않아서 ecc.py에 있는 점들 복사해옴
@@ -74,6 +74,10 @@ if __name__ == "__main__":
     # 공유할 점 G생성
     S = random.sample(valid_points, 1)
     G = S[0]
+
+    if not valid(G):
+        print("이 점은 타원 곡선에 없는 점입니다.")
+
 
     # Alice의 이름과 점G를 초기화
     alice = Person("Alice", G)
